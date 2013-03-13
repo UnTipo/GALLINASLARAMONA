@@ -22,7 +22,7 @@ namespace MvcApplication1.Controllers
         {
             City_Repository _repository = new City_Repository();
             List<City> cities = _repository.GetCitiesByPoblacion(query);
-                       return Json(cities, JsonRequestBehavior.AllowGet);
+            return Json(cities, JsonRequestBehavior.AllowGet);
         }
 
     }

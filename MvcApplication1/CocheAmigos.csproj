@@ -96,11 +96,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DataAccess\Business_Objects\City.cs" />
+    <Compile Include="DataAccess\Business_Objects\User.cs" />
     <Compile Include="DataAccess\Repositories\City_Repository.cs" />
+    <Compile Include="DataAccess\Repositories\User_Repository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Login\Login.cs" />
     <Compile Include="Models\SearchJourney\SearchJourney.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Statics\Constants.cs" />
@@ -201,6 +205,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\City\SearchJourney.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

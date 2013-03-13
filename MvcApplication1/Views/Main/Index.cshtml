@@ -4,7 +4,16 @@
 
 <h2>Index</h2>
 
-
+@using (Html.BeginForm("Index", "Main")) {
 <div>
     @Html.Partial("../City/SearchJourney")
 </div> 
+}
+
+@using (Html.BeginForm("Login", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div>
+    @Html.Partial("../User/Login")
+</div> 
+}
+
