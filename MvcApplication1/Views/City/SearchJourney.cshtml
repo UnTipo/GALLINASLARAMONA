@@ -1,0 +1,78 @@
+﻿@model MvcApplication1.Models.SearchJourney.SearchJourney
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+
+<style>
+    .ui-helper-hidden-accessible {
+     display:none
+    }
+</style>
+<script>
+
+
+    $(function () {
+        function split(val) {
+            return val.split(/,\s*/);
+        }
+        function extractLast(term) {
+            return split(term).pop();
+        }
+
+        $(".Autocomplete").bind("keydown", function (event) {
+            if (event.keyCode === $.ui.keyCode.TAB &&
+                $(this).data("autocomplete").menu.active) {
+                event.preventDefault();
+            }
+        })
+        $(".Autocomplete").autocomplete({
+            source: function (request, response) {
+                //define a function to call your Action (assuming UserController)
+                $.ajax({
+                    url: '/Main/GetMunicipios', type: "GET", dataType: "json",
+                    //query will be the param used by your action method
+                    data: { query: request.term },
+                    term: extractLast(request.term),
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return { label: item.name, value: item.idmunicipio };
+                        }))
+                    }
+                })
+            },
+            search: function () {
+                // custom minLength
+                var term = extractLast(this.value);
+                if (term.length < 3) {
+                    return false;
+                }
+            },
+            focus: function () {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function (event, ui) {
+                this.value = ui.item.label;
+                return false;
+            }
+        });
+
+        $("#BtnExchange").click(function () {
+            var From = $("#CityFrom").val();
+            var To = $("#CityTo").val();
+            $("#CityFrom").val(To);
+            $("#CityTo").val(From);
+        });
+
+    });
+
+ 
+
+</script>
+
+Search Journey
+
+@Html.TextBox("CityFrom","", new { @class="Autocomplete" })
+<input id="BtnExchange" type="button" value="Exchange" />
+@Html.TextBox("CityTo","", new { @class="Autocomplete" })
+<input id="BtnSearch" type="button" value="Buscar" />
