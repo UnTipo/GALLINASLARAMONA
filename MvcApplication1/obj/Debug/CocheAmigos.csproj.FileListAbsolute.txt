@@ -69,8 +69,6 @@ C:\Users\Merce\Dropbox\Coche Amigos\Code\CocheAmigoRepository\CocheAmigos\trunk\
 C:\Users\Merce\Dropbox\Coche Amigos\Code\CocheAmigoRepository\CocheAmigos\trunk\MvcApplication1\bin\es\EntityFramework.resources.dll
 C:\Users\Merce\Dropbox\Coche Amigos\Code\CocheAmigoRepository\CocheAmigos\trunk\MvcApplication1\bin\es\System.Web.Providers.resources.dll
 C:\Users\Merce\Dropbox\Coche Amigos\Code\CocheAmigoRepository\CocheAmigos\trunk\MvcApplication1\obj\Debug\MvcApplication1.pdb
-C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\MvcApplication1\obj\Debug\CocheAmigos.csprojResolveAssemblyReference.cache
-C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\MvcApplication1\obj\Debug\MvcApplication1.dll
 C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\MvcApplication1\bin\MvcApplication1.dll
 C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\MvcApplication1\bin\MvcApplication1.pdb
 C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\MvcApplication1\bin\EntityFramework.dll
@@ -91,4 +89,5 @@ C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\MvcApplication1\bin\System.Web.
 C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\MvcApplication1\bin\System.Web.WebPages.Razor.xml
 C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\MvcApplication1\bin\es\EntityFramework.resources.dll
 C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\MvcApplication1\bin\es\System.Web.Providers.resources.dll
+C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\MvcApplication1\obj\Debug\MvcApplication1.dll
 C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\MvcApplication1\obj\Debug\MvcApplication1.pdb

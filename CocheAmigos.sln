@@ -1,7 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Web
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocheAmigos", "MvcApplication1\CocheAmigos.csproj", "{521B04DF-B5AE-44BF-8D96-787F446C1BC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocheAmigos", "CocheAmigos2\CocheAmigos.csproj", "{6CA06AE4-E1A7-4A98-8947-21AA26CA8A4E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CA747C66-9628-4581-A03A-ED4C0B6C0018} = {CA747C66-9628-4581-A03A-ED4C0B6C0018}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{CA747C66-9628-4581-A03A-ED4C0B6C0018}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +14,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{521B04DF-B5AE-44BF-8D96-787F446C1BC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{521B04DF-B5AE-44BF-8D96-787F446C1BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{521B04DF-B5AE-44BF-8D96-787F446C1BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{521B04DF-B5AE-44BF-8D96-787F446C1BC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CA06AE4-E1A7-4A98-8947-21AA26CA8A4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CA06AE4-E1A7-4A98-8947-21AA26CA8A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CA06AE4-E1A7-4A98-8947-21AA26CA8A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CA06AE4-E1A7-4A98-8947-21AA26CA8A4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA747C66-9628-4581-A03A-ED4C0B6C0018}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA747C66-9628-4581-A03A-ED4C0B6C0018}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA747C66-9628-4581-A03A-ED4C0B6C0018}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA747C66-9628-4581-A03A-ED4C0B6C0018}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

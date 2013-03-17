@@ -1,0 +1,5 @@
+C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\DataAccess\obj\Debug\DataAccess.pdb
