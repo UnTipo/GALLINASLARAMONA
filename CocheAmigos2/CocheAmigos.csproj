@@ -104,7 +104,6 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\SearchJourney\SearchJourney.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Statics\Constants.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -204,6 +203,8 @@
     <Content Include="Views\Main\Index2.cshtml" />
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\Account\RememberPassword.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

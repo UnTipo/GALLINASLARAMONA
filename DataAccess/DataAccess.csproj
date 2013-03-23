@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,11 +42,23 @@
   <ItemGroup>
     <Compile Include="Business_Objects\City.cs" />
     <Compile Include="Business_Objects\Users.cs" />
+    <Compile Include="CAResources\CocheAmigoSpanish.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CocheAmigoSpanish.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Statics\Constants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\City_Repository.cs" />
     <Compile Include="Repositories\User_Repository.cs" />
     <Compile Include="Utiles\GenerateNewPassword.cs" />
     <Compile Include="Utiles\SendEmail.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CAResources\CocheAmigoSpanish.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CocheAmigoSpanish.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

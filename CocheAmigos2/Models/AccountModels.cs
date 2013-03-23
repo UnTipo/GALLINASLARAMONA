@@ -52,6 +52,7 @@ namespace CocheAmigos2.Models
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Dirección de correo electrónico")]
         public string Email { get; set; }
+        
 
         [Required]
         [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 6)]
@@ -72,6 +73,27 @@ namespace CocheAmigos2.Models
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+    }
+
+    public class ResetPasswordModel
+    {
+
+
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Introduce la contraseña enviada por email")]
+        public string PasswordEmail { get; set; }
+        
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Introduce tu nueva contraseña")]
+        public string Password { get; set; }
+        
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirmar la nueva contraseña contraseña")]
+        [System.Web.Mvc.Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
+        public string ConfirmPassword { get; set; }
 
     }
 }

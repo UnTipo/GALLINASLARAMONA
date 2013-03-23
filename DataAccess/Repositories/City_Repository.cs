@@ -30,7 +30,7 @@ namespace DataAccess
                 // Open the connection
                 conn.Open();
                 // 1. Instantiate a new command with a query and connection
-                SqlCommand cmd = new SqlCommand("GetMunicipiosAll", conn);
+                SqlCommand cmd = new SqlCommand("MunicipiosGetAll", conn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 // 2. Call Execute reader to get query results
                 rdr = cmd.ExecuteReader();

@@ -18,7 +18,7 @@ namespace DataAccess.Utiles
             public static string PASSWORD_CHARS_ALPHA =
                                     "abcdefghjkmnpqrstwxyzABCDEFGHJKMNPQRSTWXYZ";
             public static string PASSWORD_CHARS_NUMERIC = "23456789";
-            public static string PASSWORD_CHARS_SPECIAL = "*$-+?_&=!%{}/";
+            public static string PASSWORD_CHARS_SPECIAL = "";
             public static string PASSWORD_CHARS_ALPHANUMERIC =
                                     PASSWORD_CHARS_ALPHA + PASSWORD_CHARS_NUMERIC;
             public static string PASSWORD_CHARS_ALL =

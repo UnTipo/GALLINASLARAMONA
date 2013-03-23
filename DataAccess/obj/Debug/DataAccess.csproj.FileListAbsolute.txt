@@ -3,3 +3,5 @@ C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\DataAccess\bin\Debug\DataAccess
 C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\DataAccess\bin\Debug\DataAccess.pdb
 C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\DataAccess\obj\Debug\DataAccess.dll
 C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\DataAccess\obj\Debug\DataAccess.CAResources.CocheAmigoSpanish.resources
+C:\Users\MERCE\Documents\GitHub\GALLINASLARAMONA\DataAccess\obj\Debug\DataAccess.csproj.GenerateResource.Cache
