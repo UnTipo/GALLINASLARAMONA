@@ -44,6 +44,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\City_Repository.cs" />
     <Compile Include="Repositories\User_Repository.cs" />
+    <Compile Include="Utiles\GenerateNewPassword.cs" />
+    <Compile Include="Utiles\SendEmail.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

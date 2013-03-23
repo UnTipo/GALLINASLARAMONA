@@ -9,6 +9,7 @@ using CocheAmigos2.Models;
 using DataAccess.Business_Objects;
 using DataAccess.Repositories;
 using Statics;
+using DataAccess.Utiles;
 
 namespace CocheAmigos2.Controllers
 {
@@ -17,7 +18,7 @@ namespace CocheAmigos2.Controllers
 
         //
         // GET: /Account/LogOn
-
+        private User_Repository _repository = new User_Repository(Constants.ConnectionString);
         public ActionResult LogOn()
         {
             return View();
@@ -31,7 +32,6 @@ namespace CocheAmigos2.Controllers
         {
             if (ModelState.IsValid)
             {
-                User_Repository _repository = new User_Repository(Constants.ConnectionString);
                 int iduser = _repository.GetUserLogin(model.UserName, model.Password);
                 if (iduser != 0)
                 {
@@ -160,7 +160,8 @@ namespace CocheAmigos2.Controllers
 
         public ActionResult RememberPassword()
         {
-            return View();
+            RememberPasswordModel model = new RememberPasswordModel();
+            return View(model);
         }
 
         //
@@ -169,8 +170,22 @@ namespace CocheAmigos2.Controllers
         [HttpPost]
         public ActionResult RememberPassword(RememberPasswordModel model)
         {
-           //Enviar email
-                       return View(model);
+            //Get the iduser with the email
+            Users user = _repository.GetUserByEmail(model.Email);
+            if (user.iduser != 0)
+            {
+                //Update to the user resetPassword 
+
+                //Enviar email
+                string NewPassword = GenerateNewPassword.Generate();
+                SendEmail.SendForgotPassword(model.Email, NewPassword);
+                return View(model);
+            }
+            else
+            {
+                ViewBag.Confirmation = "El email" + model.Email + " no existe en COCHE AMIGO.";
+                return View();
+            }
         }
 
         #region Status Codes
