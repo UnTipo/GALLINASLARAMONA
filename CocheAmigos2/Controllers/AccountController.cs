@@ -10,6 +10,7 @@ using DataAccess.Business_Objects;
 using DataAccess.Repositories;
 using Statics;
 using DataAccess.Utiles;
+using CocheAmigos2.Handler;
 
 namespace CocheAmigos2.Controllers
 {
@@ -182,7 +183,8 @@ namespace CocheAmigos2.Controllers
                 if (result)
                 {
                     SendEmail.SendForgotPassword(model.Email, NewPassword);
-                    return RedirectToAction("ResetPassword", new { id = user.iduser });
+                    
+                    return RedirectToAction("ResetPassword", new { id = Crypto.Encrypt(user.iduser.ToString()) });
 
                 }
                 else
@@ -203,6 +205,7 @@ namespace CocheAmigos2.Controllers
 
         public ActionResult ResetPassword(int id)
         {
+ 
             Users user = _repository.GetUserById(id);
             if (user.iduser == 0)
             {

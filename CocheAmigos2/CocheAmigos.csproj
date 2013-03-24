@@ -101,6 +101,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Handler\Crypto.cs" />
+    <Compile Include="Handler\UnencriptedRouteHandler.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\SearchJourney\SearchJourney.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
