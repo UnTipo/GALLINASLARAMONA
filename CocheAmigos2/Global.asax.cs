@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CocheAmigos2.Handler;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -23,11 +24,26 @@ namespace CocheAmigos2
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                "Default", // Nombre de ruta
-                "{controller}/{action}/{id}", // URL con parámetros
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Valores predeterminados de parámetro
-            );
+            //routes.MapRoute(
+            //    "Default", // Nombre de ruta
+            //    "{controller}/{action}/{id}", // URL con parámetros
+            //    new { controller = "Home", action = "Index", id = UrlParameter.Optional }, new UnencriptedRouteHandler()// Valores predeterminados de parámetro
+            //);
+
+
+            routes.Add(
+    "Default",
+    new Route("{controller}/{action}/{id}",// URL con parámetros
+                new RouteValueDictionary(new { controller = "Home", action = "Index", id = UrlParameter.Optional }),// Valores predeterminados de parámetro
+                new UnencriptedRouteHandler())
+);
+
+            routes.Add(
+"LogIn",
+new Route("{controller}/{action}/{id}/{pw}",// URL con parámetros
+    new RouteValueDictionary(new { controller = "Account", action = "RememberPassword", id = UrlParameter.Optional, pw = UrlParameter.Optional }),// Valores predeterminados de parámetro
+    new UnencriptedRouteHandler())
+);
 
         }
 

@@ -10,6 +10,7 @@ using DataAccess.Business_Objects;
 using DataAccess.Repositories;
 using Statics;
 using DataAccess.Utiles;
+using CocheAmigos2.Handler;
 
 namespace CocheAmigos2.Controllers
 {
@@ -174,12 +175,26 @@ namespace CocheAmigos2.Controllers
             Users user = _repository.GetUserByEmail(model.Email);
             if (user.iduser != 0)
             {
-                //Update to the user resetPassword 
-
-                //Enviar email
+                //Generate New Password
                 string NewPassword = GenerateNewPassword.Generate();
-                SendEmail.SendForgotPassword(model.Email, NewPassword);
-                return View(model);
+                //Update to the user resetPassword in the database
+                bool result = _repository.UpdateResetPassword(user.iduser, NewPassword);
+                //Enviar email if has been updated correctly. 
+                if (result)
+                {
+                    SendEmail.SendForgotPassword(model.Email, NewPassword);
+
+                    return RedirectToAction("ResetPassword", new { id = Crypto.Encrypt(user.iduser.ToString()), pw = Crypto.Encrypt(NewPassword) });
+
+                }
+                else
+                {
+                    ViewBag.Confirmation = "No se ha reseteado la contraseña.";
+                    return View(model);
+                }
+
+
+
             }
             else
             {
@@ -187,6 +202,47 @@ namespace CocheAmigos2.Controllers
                 return View();
             }
         }
+
+        public ActionResult ResetPassword(int id, string pw)
+        {
+ 
+            Users user = _repository.GetUserById(id);
+            if (user.iduser == 0)
+            {
+
+                ViewBag.Confirmation = "El usuario no existe";
+                return RedirectToAction("ResetPasswordError");
+                
+            }
+            return View();
+        }
+
+        //
+        // POST: /Account/RememberPassword
+
+        [HttpPost]
+        public ActionResult ResetPassword(ResetPasswordModel model, int id)
+        {
+             Users user = _repository.GetUserEbyIdResetPassword(id, model.PasswordEmail);
+             if (user.iduser != 0)
+             {
+                 //Check reset password
+                
+                 _repository.UsersUpdatePassword(id, model.Password);
+                 FormsAuthentication.SetAuthCookie(user.name + user.surname,false);
+                 return View("Index");
+             }
+             else
+             {
+                 ViewBag.Confirmation = "la contraseña que te hemos enviado por email no es la misma. ";
+             }
+         
+
+            return View();
+        }
+
+
+
 
         #region Status Codes
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)

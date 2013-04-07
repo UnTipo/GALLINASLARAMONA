@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Statics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
@@ -15,20 +16,20 @@ namespace DataAccess.Utiles
             try
             {
 
-                string body = "New Password" + NewPassword;
+                string body = "New Password: " + NewPassword;
                 MailMessage myHtmlMessage;
 
                 SmtpClient mySmtpClient;
 
-                myHtmlMessage = new MailMessage("EmailFrom", "EmailTo", "Subject " + DateTime.Now.ToString(), body);
+                myHtmlMessage = new MailMessage(Constants.EmailNoReply, emailTO, "COCHE AMIGOS: Recuperar tu contraseña", body);
 
-                mySmtpClient = new SmtpClient("smtp.gmail.com");
+                mySmtpClient = new SmtpClient(Constants.EmailSMTPNoReply);
 
-                mySmtpClient.Credentials = new System.Net.NetworkCredential("meramoroscon@gmail.com", "caudete2012a");
+                mySmtpClient.Credentials = new System.Net.NetworkCredential(Constants.EmailNoReply, Constants.EmailNoReplyPassword);
 
                 mySmtpClient.EnableSsl = true;
 
-                mySmtpClient.Port = 587;
+                mySmtpClient.Port = int.Parse(Constants.EmailPort);
 
                 mySmtpClient.Send(myHtmlMessage);
 
