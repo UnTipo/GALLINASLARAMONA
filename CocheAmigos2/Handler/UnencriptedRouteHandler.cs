@@ -10,7 +10,7 @@ namespace CocheAmigos2.Handler
     {
         protected override IHttpHandler GetHttpHandler(System.Web.Routing.RequestContext requestContext)
         {
-            
+            //***COMENTARIO
             foreach (var rd in requestContext.RouteData.Values.Where(x => x.Key.Equals("id")).ToList())
             {
                 var value = rd.Value.ToString();
