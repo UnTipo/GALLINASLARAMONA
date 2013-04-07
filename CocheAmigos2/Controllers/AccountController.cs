@@ -183,8 +183,8 @@ namespace CocheAmigos2.Controllers
                 if (result)
                 {
                     SendEmail.SendForgotPassword(model.Email, NewPassword);
-                    
-                    return RedirectToAction("ResetPassword", new { id = Crypto.Encrypt(user.iduser.ToString()) });
+
+                    return RedirectToAction("ResetPassword", new { id = Crypto.Encrypt(user.iduser.ToString()), pw = Crypto.Encrypt(NewPassword) });
 
                 }
                 else
@@ -203,7 +203,7 @@ namespace CocheAmigos2.Controllers
             }
         }
 
-        public ActionResult ResetPassword(int id)
+        public ActionResult ResetPassword(int id, string pw)
         {
  
             Users user = _repository.GetUserById(id);

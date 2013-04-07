@@ -38,6 +38,13 @@ namespace CocheAmigos2
                 new UnencriptedRouteHandler())
 );
 
+            routes.Add(
+"LogIn",
+new Route("{controller}/{action}/{id}/{pw}",// URL con parámetros
+    new RouteValueDictionary(new { controller = "Account", action = "RememberPassword", id = UrlParameter.Optional, pw = UrlParameter.Optional }),// Valores predeterminados de parámetro
+    new UnencriptedRouteHandler())
+);
+
         }
 
         protected void Application_Start()

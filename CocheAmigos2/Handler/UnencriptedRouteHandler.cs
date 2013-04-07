@@ -17,7 +17,7 @@ namespace CocheAmigos2.Handler
                 var decrypted = !string.IsNullOrEmpty(value) ?
                     Crypto.Decrypt(value) :
                     string.Empty;
-                requestContext.RouteData.Values.Remove(rd.Key);
+               requestContext.RouteData.Values.Remove(rd.Key);
               requestContext.RouteData.Values.Add("id", decrypted);
             }
             return base.GetHttpHandler(requestContext);
