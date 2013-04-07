@@ -182,9 +182,13 @@ namespace CocheAmigos2.Controllers
                 //Enviar email if has been updated correctly. 
                 if (result)
                 {
-                    SendEmail.SendForgotPassword(model.Email, NewPassword);
 
-                    return RedirectToAction("ResetPassword", new { id = Crypto.Encrypt(user.iduser.ToString()), pw = Crypto.Encrypt(NewPassword) });
+                    string url = Url.Action("Account", "ResetPassword", new System.Web.Routing.RouteValueDictionary(new { id = Crypto.Encrypt(user.iduser.ToString()), pw = Crypto.Encrypt(NewPassword) }), "http", Request.Url.Host);
+                    string url1 = Server.UrlDecode(url);
+                    SendEmail.SendForgotPassword(model.Email, NewPassword, url);
+
+                    return View(model);
+                    //  return RedirectToAction("ResetPassword", new { id = Crypto.Encrypt(user.iduser.ToString()), pw = Crypto.Encrypt(NewPassword) });
 
                 }
                 else
@@ -203,16 +207,19 @@ namespace CocheAmigos2.Controllers
             }
         }
 
-        public ActionResult ResetPassword(int id, string pw)
+        public ActionResult ResetPassword(int? id, string pw)
         {
- 
+            if (id == null)
+            {
+                id = 0;
+            }
             Users user = _repository.GetUserById(id);
             if (user.iduser == 0)
             {
 
                 ViewBag.Confirmation = "El usuario no existe";
                 return RedirectToAction("ResetPasswordError");
-                
+
             }
             return View();
         }
@@ -221,22 +228,22 @@ namespace CocheAmigos2.Controllers
         // POST: /Account/RememberPassword
 
         [HttpPost]
-        public ActionResult ResetPassword(ResetPasswordModel model, int id)
+        public ActionResult ResetPassword(ResetPasswordModel model, int id, string pw)
         {
-             Users user = _repository.GetUserEbyIdResetPassword(id, model.PasswordEmail);
-             if (user.iduser != 0)
-             {
-                 //Check reset password
-                
-                 _repository.UsersUpdatePassword(id, model.Password);
-                 FormsAuthentication.SetAuthCookie(user.name + user.surname,false);
-                 return View("Index");
-             }
-             else
-             {
-                 ViewBag.Confirmation = "la contraseña que te hemos enviado por email no es la misma. ";
-             }
-         
+            Users user = _repository.GetUserEbyIdResetPassword(id, pw);
+            if (user.iduser != 0)
+            {
+                //Check reset password
+
+                _repository.UsersUpdatePassword(id, model.Password);
+                FormsAuthentication.SetAuthCookie(user.name + user.surname, false);
+                return View("Index");
+            }
+            else
+            {
+                ViewBag.Confirmation = "la contraseña que te hemos enviado por email no es la misma. ";
+            }
+
 
             return View();
         }

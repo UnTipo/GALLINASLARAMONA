@@ -79,11 +79,6 @@ namespace CocheAmigos2.Models
     public class ResetPasswordModel
     {
 
-
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Introduce la contraseña enviada por email")]
-        public string PasswordEmail { get; set; }
         
         [Required]
         [DataType(DataType.Password)]

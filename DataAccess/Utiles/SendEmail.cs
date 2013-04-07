@@ -11,12 +11,12 @@ namespace DataAccess.Utiles
     public class SendEmail
     {
 
-        public static void SendForgotPassword(string emailTO, string NewPassword)
+        public static void SendForgotPassword(string emailTO, string NewPassword, string url)
         {
             try
             {
 
-                string body = "New Password: " + NewPassword;
+                string body = url;
                 MailMessage myHtmlMessage;
 
                 SmtpClient mySmtpClient;

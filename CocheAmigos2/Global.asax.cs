@@ -32,17 +32,17 @@ namespace CocheAmigos2
 
 
             routes.Add(
-    "Default",
-    new Route("{controller}/{action}/{id}",// URL con parámetros
-                new RouteValueDictionary(new { controller = "Home", action = "Index", id = UrlParameter.Optional }),// Valores predeterminados de parámetro
+    "Default1",
+    new Route("{controller}/{action}/{id}/{pw}",// URL con parámetros
+                new RouteValueDictionary(new { controller = "Home", action = "Index", id = UrlParameter.Optional,pw= UrlParameter.Optional }),// Valores predeterminados de parámetro
                 new UnencriptedRouteHandler())
 );
 
             routes.Add(
 "LogIn",
 new Route("{controller}/{action}/{id}/{pw}",// URL con parámetros
-    new RouteValueDictionary(new { controller = "Account", action = "RememberPassword", id = UrlParameter.Optional, pw = UrlParameter.Optional }),// Valores predeterminados de parámetro
-    new UnencriptedRouteHandler())
+    new RouteValueDictionary(new { controller = "Account", action = "ResetPassword", id = UrlParameter.Optional, pw = UrlParameter.Optional }),// Valores predeterminados de parámetro
+    new UnencriptedRouteHandler1())
 );
 
         }

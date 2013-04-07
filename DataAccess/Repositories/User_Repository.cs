@@ -26,7 +26,7 @@ namespace DataAccess.Repositories
         {
             return GetUserAllStore();
         }
-        public Users GetUserById(int id)
+        public Users GetUserById(int? id)
         {
             return GetUserStore(id);
         }
@@ -114,7 +114,7 @@ namespace DataAccess.Repositories
             }
         }
 
-        private Users GetUserStore(int id)
+        private Users GetUserStore(int? id)
         {
             SqlConnection conn = new SqlConnection(_connection);
             List<Users> Users = new List<Users>();
