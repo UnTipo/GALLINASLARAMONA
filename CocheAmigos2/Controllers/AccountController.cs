@@ -183,11 +183,11 @@ namespace CocheAmigos2.Controllers
                 if (result)
                 {
 
-                    string url = Url.Action("Account", "ResetPassword", new System.Web.Routing.RouteValueDictionary(new { id = Crypto.Encrypt(user.iduser.ToString()), pw = Crypto.Encrypt(NewPassword) }), "http", Request.Url.Host);
+                    string url = Url.Action("ResetPassword", "Account", new System.Web.Routing.RouteValueDictionary(new { id = Crypto.Encrypt(user.iduser.ToString()), pw = Crypto.Encrypt(NewPassword) }), "http", Request.Url.Host);
                     string url1 = Server.UrlDecode(url);
                     SendEmail.SendForgotPassword(model.Email, NewPassword, url);
 
-                    return View(model);
+                    return View("ResetPasswordEmail");
                     //  return RedirectToAction("ResetPassword", new { id = Crypto.Encrypt(user.iduser.ToString()), pw = Crypto.Encrypt(NewPassword) });
 
                 }
@@ -207,21 +207,21 @@ namespace CocheAmigos2.Controllers
             }
         }
 
-        public ActionResult ResetPassword(int? id, string pw)
+        public ActionResult ResetPassword(int id, string pw)
         {
-            if (id == null)
-            {
-                id = 0;
-            }
-            Users user = _repository.GetUserById(id);
-            if (user.iduser == 0)
-            {
+                    Users user = _repository.GetUserEbyIdResetPassword(id, pw);
+                    if (user.iduser == 0)
+                    {
 
-                ViewBag.Confirmation = "El usuario no existe";
-                return RedirectToAction("ResetPasswordError");
+                        ViewBag.Confirmation = "El usuario no existe";
+                        return View("ResetPasswordError");
 
-            }
-            return View();
+                    }
+                    else
+                    {
+                        return View();
+                    }
+            
         }
 
         //
@@ -237,7 +237,7 @@ namespace CocheAmigos2.Controllers
 
                 _repository.UsersUpdatePassword(id, model.Password);
                 FormsAuthentication.SetAuthCookie(user.name + user.surname, false);
-                return View("Index");
+                return RedirectToAction("Index","Home","");
             }
             else
             {
@@ -248,7 +248,10 @@ namespace CocheAmigos2.Controllers
             return View();
         }
 
-
+        public ActionResult ResetPasswordEmail()
+        {
+            return View();
+        }
 
 
         #region Status Codes

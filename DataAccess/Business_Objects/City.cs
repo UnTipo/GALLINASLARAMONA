@@ -11,8 +11,8 @@ namespace DataAccess.Business_Objects
         public string name { get; set; }
         public string comunidad { get; set; }
          public string provincia { get; set; }
-        public decimal latitud { get; set; }
-        public decimal longitud { get; set; }
+        public decimal latitude { get; set; }
+        public decimal longitude { get; set; }
 
     }
 }

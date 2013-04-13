@@ -42,8 +42,8 @@ namespace DataAccess
                     city.name = rdr["name"].ToString();
                     city.comunidad = rdr["comunidad"].ToString();
                     city.provincia = rdr["provincia"].ToString();
-                    city.latitud = decimal.Parse(rdr["latitud"].ToString());
-                    city.longitud = decimal.Parse(rdr["longitud"].ToString());
+                    city.latitude = decimal.Parse(rdr["latitud"].ToString());
+                    city.longitude = decimal.Parse(rdr["longitud"].ToString());
                     Cities.Add(city);
                 }
                 return Cities;

@@ -97,14 +97,18 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JourneyController.cs" />
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Handler\Crypto.cs" />
     <Compile Include="Handler\UnencriptedRouteHandler.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\JourneyModel.cs" />
     <Compile Include="Models\SearchJourney\SearchJourney.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -207,6 +211,9 @@
     <Content Include="Views\Account\RememberPassword.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordError.cshtml" />
+    <Content Include="Views\Account\ResetPasswordEmail.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\Journey\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
