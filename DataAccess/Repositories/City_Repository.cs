@@ -66,7 +66,7 @@ namespace DataAccess
         public List<City> GetCitiesByPoblacion(string poblacion)
         {
           
-            List<City> cities =GetPoblacionAll();
+            List<City> cities = GetPoblacionAll();
             List<City> list = (from u in cities
                                where u.name.Trim().ToUpper().StartsWith(poblacion.Trim().ToUpper())
                                select u).ToList<City>();
